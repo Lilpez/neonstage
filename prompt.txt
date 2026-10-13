@@ -1,0 +1,908 @@
+# DIRETRIZ PRIORITÁRIA — REINVENÇÃO TOTAL DOS SISTEMAS DE VOZ, ÁUDIO E MIDI
+
+## AUTORIZAÇÃO IRRESTRITA PARA RECONSTRUÇÃO DOS MOTORES DE RECONHECIMENTO
+
+**ATENÇÃO: ESTA É UMA DAS DIRETRIZES MAIS IMPORTANTES DE TODO O PROJETO NEONSTAGE.**
+
+Você tem liberdade técnica e arquitetural TOTAL para **DESCARTAR, SUBSTITUIR, REFORMULAR E REIMPLEMENTAR DO ZERO** qualquer sistema existente de:
+
+- Reconhecimento de voz e processamento vocal.
+- Captura e análise de áudio em tempo real.
+- Detecção de frequência fundamental (pitch detection).
+- Reconhecimento de notas musicais cantadas ou tocadas.
+- Detecção de início e término de notas (onset/offset).
+- Reconhecimento de instrumentos e sinais musicais, quando aplicável.
+- Comunicação e reconhecimento de dispositivos MIDI.
+- Processamento e interpretação de mensagens MIDI.
+- Mapeamento de notas, canais e controles MIDI.
+- Sincronização entre áudio, voz, MIDI e interface.
+- Análise de afinação, ritmo, duração e precisão musical.
+- Calibração de latência e sensibilidade.
+- Gerenciamento de microfones e dispositivos de entrada.
+- Qualquer outro mecanismo relacionado ao processamento e reconhecimento musical.
+
+### 1. NÃO PRESERVE OS ALGORITMOS ANTIGOS POR OBRIGAÇÃO
+
+Não quero que você simplesmente corrija ou modernize o código existente.
+
+Quero que você avalie criticamente se a abordagem atual é realmente a melhor.
+
+Se identificar um algoritmo, biblioteca, arquitetura ou técnica superior, **USE-A, MESMO QUE ISSO EXIJA REESCREVER COMPLETAMENTE O MOTOR ORIGINAL**.
+
+O código existente deve servir como referência para descobrir o comportamento esperado, não como uma restrição à sua criatividade técnica.
+
+Você pode substituir integralmente a implementação anterior de detecção musical.
+
+### 2. RECONHECIMENTO DE VOZ E ÁUDIO
+
+Investigue qual é a finalidade exata de cada recurso de reconhecimento vocal do NeonStage.
+
+Diferencie corretamente:
+
+- Reconhecimento de fala e palavras.
+- Reconhecimento de canto.
+- Detecção de altura musical.
+- Monitoramento de afinação.
+- Identificação de notas vocais.
+- Detecção de atividade vocal.
+- Análise de precisão temporal.
+
+Não assuma que reconhecimento de fala convencional resolve automaticamente o reconhecimento de canto e afinação.
+
+Você tem liberdade para desenvolver um novo mecanismo baseado em processamento digital de sinais, algoritmos especializados, bibliotecas de áudio, modelos de machine learning ou estratégias híbridas.
+
+Considere soluções como autocorrelação, YIN, pYIN, análise espectral, processamento em blocos, modelos neurais e outras abordagens tecnicamente adequadas.
+
+Essas tecnologias são possibilidades, NÃO requisitos obrigatórios.
+
+Escolha a estratégia após avaliar o problema real e suas restrições.
+
+O novo sistema deve priorizar:
+
+- Precisão de detecção.
+- Baixa latência.
+- Estabilidade.
+- Resistência a ruídos.
+- Resposta rápida às mudanças de nota.
+- Redução de falsos positivos.
+- Funcionamento consistente em tempo real.
+- Compatibilidade com os dispositivos disponíveis.
+- Calibração adequada.
+- Consumo eficiente de recursos.
+
+Se possível, projete um mecanismo que se adapte a diferentes microfones, níveis de ruído, volumes e características vocais.
+
+**Não sacrifique a precisão para criar uma interface visualmente impressionante.**
+
+### 3. RECONSTRUÇÃO COMPLETA DO MOTOR MIDI
+
+Você também tem autorização para reconstruir absolutamente todo o gerenciamento MIDI.
+
+Pode substituir bibliotecas, drivers, camadas de abstração, mecanismos de descoberta de dispositivos e processamento de eventos.
+
+Investigue e implemente, conforme os requisitos reais:
+
+- Detecção de dispositivos MIDI.
+- Conexão e desconexão dinâmica.
+- Reconexão após falhas.
+- Mensagens Note On e Note Off.
+- Velocity.
+- Control Change.
+- Pitch Bend.
+- Canais MIDI.
+- Sustain e outros controles relevantes.
+- Pressionamento simultâneo de notas.
+- Correspondência entre notas recebidas e ações do NeonStage.
+- Tratamento de eventos duplicados.
+- Ordenação temporal dos eventos.
+- Gerenciamento de dispositivos múltiplos.
+- Identificação de fontes de entrada.
+- Mapeamento configurável.
+- Diagnóstico das mensagens recebidas.
+- Sincronização dos eventos com os sistemas musicais.
+
+Avalie criticamente a necessidade de usar Web MIDI API, bibliotecas MIDI nativas, serviços de comunicação ou outro mecanismo.
+
+**Escolha a tecnologia que efetivamente entregue o melhor funcionamento no ambiente-alvo.**
+
+Não mantenha uma biblioteca antiga se ela estiver limitando o desempenho, a compatibilidade ou a estabilidade.
+
+### 4. MOTOR DE TEMPO REAL E SINCRONIZAÇÃO
+
+Uma das suas responsabilidades é avaliar se o NeonStage deveria utilizar uma arquitetura unificada para eventos musicais.
+
+Considere a criação de um motor central capaz de receber diferentes fontes, como:
+
+**Microfone → Processamento de áudio → Detecção musical → Eventos normalizados**
+
+**Dispositivo MIDI → Interpretação de mensagens → Eventos normalizados**
+
+**Eventos normalizados → Motor musical → Estado da aplicação → Interface e funcionalidades**
+
+Essa arquitetura é apenas uma hipótese inicial. Você pode desenvolver uma solução melhor.
+
+Investigue principalmente:
+
+- Latência ponta a ponta.
+- Bufferização.
+- Jitter.
+- Precisão dos timestamps.
+- Sincronização entre fontes diferentes.
+- Perda ou duplicação de eventos.
+- Consistência entre som e representação visual.
+- Diferenças de latência entre dispositivos.
+- Compensação temporal calibrável.
+
+Se julgar necessário, reconstrua integralmente a maneira como o NeonStage processa e sincroniza eventos musicais.
+
+### 5. AUTONOMIA PARA CRIAR UMA SOLUÇÃO SUPERIOR
+
+Você não precisa me perguntar se pode:
+
+- Trocar todo o motor de áudio.
+- Substituir o reconhecimento vocal.
+- Implementar outro algoritmo de pitch detection.
+- Criar um motor MIDI novo.
+- Unificar os pipelines de eventos.
+- Substituir bibliotecas antigas.
+- Implementar processamento em workers ou threads.
+- Utilizar módulos nativos quando necessário.
+- Criar ferramentas de calibração.
+- Redesenhar todas as configurações relacionadas.
+- Reorganizar completamente os módulos musicais.
+
+**A AUTORIZAÇÃO PARA TODAS ESSAS MODIFICAÇÕES JÁ ESTÁ CONCEDIDA.**
+
+Tome as decisões com base em qualidade, compatibilidade, desempenho e testes, e não por preferência automática por uma tecnologia.
+
+### 6. TESTES E VALIDAÇÃO REAL
+
+Não considere o sistema de reconhecimento funcional apenas porque consegue receber algum sinal.
+
+Crie uma estratégia de validação que avalie, conforme cada recurso:
+
+- Notas corretamente reconhecidas.
+- Notas perdidas.
+- Notas detectadas incorretamente.
+- Precisão de frequência.
+- Desvios de afinação.
+- Latência real.
+- Estabilidade da detecção.
+- Precisão temporal.
+- Funcionamento com eventos simultâneos.
+- Recuperação após desconexões.
+- Comportamento durante sessões prolongadas.
+
+Quando possível, utilize sinais e sequências MIDI conhecidos para criar testes reproduzíveis.
+
+Para áudio, considere sinais sintetizados de frequência conhecida e gravações de referência adequadas.
+
+Os testes automatizados não substituem integralmente a validação com microfones, instrumentos e dispositivos MIDI reais.
+
+Se o hardware não estiver acessível, documente explicitamente quais comportamentos ainda precisam ser verificados.
+
+### 7. EXPERIÊNCIA DO USUÁRIO
+
+A nova interface deve permitir que o usuário compreenda e controle os sistemas de reconhecimento sem depender de configurações técnicas confusas.
+
+Considere, quando relevante:
+
+- Seleção de microfone.
+- Seleção de entrada MIDI.
+- Indicadores reais de conexão.
+- Visualização de atividade de áudio.
+- Monitor de eventos MIDI.
+- Exibição de notas detectadas.
+- Ferramentas de calibração.
+- Teste de entrada de dispositivos.
+- Ajustes de sensibilidade.
+- Diagnóstico de problemas.
+- Mensagens claras de erro.
+
+Não acrescente recursos apenas para aumentar a quantidade de configurações disponíveis.
+
+Priorize uma experiência simples, inteligente e confiável.
+
+### 8. PRINCÍPIO FUNDAMENTAL
+
+**O QUE PRECISA SER PRESERVADO É A FUNCIONALIDADE DO NEONSTAGE, NÃO A TECNOLOGIA QUE FOI UTILIZADA PARA CONSTRUÍ-LA.**
+
+Se o reconhecimento de voz atual precisa ser totalmente substituído, substitua.
+
+Se o sistema MIDI precisa ser reescrito, reescreva.
+
+Se toda a arquitetura de processamento musical pode ser melhorada, reconstrua.
+
+Se a interface antiga atrapalha a experiência, descarte-a.
+
+Você tem liberdade para reconsiderar todas as decisões anteriores, desde que preserve os requisitos funcionais comprovados e valide adequadamente os novos resultados.
+
+**MINHA EXPECTATIVA É QUE VOCÊ NÃO APENAS REPRODUZA O NEONSTAGE ATUAL, MAS UTILIZE SUA CAPACIDADE DE ENGENHARIA PARA DESENVOLVER UMA IMPLEMENTAÇÃO SIGNIFICATIVAMENTE MELHOR.**
+
+Trate o sistema existente como ponto de partida para compreender o produto, nunca como limite para aquilo que o NeonStage pode se tornar.
+
+# NEONSTAGE — PROJECT REBIRTH
+## Reconstrução integral, engenharia reversa, redesign e reimplementação de produção
+
+Você é o engenheiro principal de uma equipe multidisciplinar de nível sênior, composta por:
+- Software Architect
+- Senior Full-Stack Engineer
+- Senior Frontend Engineer
+- Backend and API Engineer
+- UI/UX Design Director
+- Product Designer
+- Database Architect
+- QA and Test Automation Engineer
+- Security Engineer
+- DevOps Engineer
+- Performance Engineer
+- Technical Product Manager
+
+Sua missão é assumir a responsabilidade técnica integral pelo projeto NEONSTAGE e reconstruí-lo do zero, produzindo uma implementação nova, funcional, consistente, robusta e visualmente superior.
+
+O código atual não deve ser considerado uma arquitetura a preservar. Ele é uma fonte de evidências sobre comportamento, funcionalidades, regras de negócio, integrações, experiências já testadas e decisões anteriores.
+
+Você tem autorização para redesenhar 100% da interface, alterar 100% da arquitetura interna, substituir bibliotecas, refazer componentes, redefinir organização de arquivos, reformular fluxos, modificar modelos de dados e criar recursos complementares quando isso melhorar o produto.
+
+LIBERDADE DE IMPLEMENTAÇÃO NÃO SIGNIFICA LIBERDADE PARA REMOVER FUNCIONALIDADES.
+
+A versão reconstruída precisa preservar todos os comportamentos existentes que forem confirmados como intencionais, salvo quando houver razões técnicas ou de produto justificadas e documentadas.
+
+O objetivo final não é uma demonstração conceitual, um mockup, um MVP artificial ou uma coleção de componentes isolados.
+
+O objetivo é um NEONSTAGE NOVO E EXECUTÁVEL.
+
+---
+
+# 1. DIRETIVA CENTRAL
+
+Reconstrua o NeonStage do zero, usando o projeto existente como referência funcional e histórica.
+
+Você deve:
+1. Investigar e compreender o projeto atual profundamente.
+2. Identificar todas as funcionalidades implementadas.
+3. Descobrir os fluxos completos entre interface, lógica, armazenamento e integrações.
+4. Distinguir o que realmente funciona do que está apenas parcialmente implementado.
+5. Identificar recursos que tenham sido construídos e posteriormente quebrados.
+6. Preservar comportamentos validados pelo usuário.
+7. Projetar uma arquitetura nova e sustentável.
+8. Criar uma interface inteiramente nova, se considerar adequado.
+9. Implementar as funcionalidades reais, não apenas suas representações visuais.
+10. Executar testes objetivos e corrigir os erros encontrados.
+11. Entregar um projeto independente, instalável, executável e documentado.
+
+Não assuma funcionalidades específicas do NeonStage sem evidências no repositório ou na documentação.
+
+Se houver histórico de conversas, README, screenshots, commits, backups, builds anteriores ou arquivos de configuração, use-os como fontes de requisitos e decisões já estabelecidas.
+
+Quando encontrar divergências entre código, documentação e comportamento observado, analise a evidência, preserve o que for comprovadamente funcional e registre as decisões.
+
+---
+
+# 2. AUTONOMIA TÉCNICA TOTAL
+
+Você tem liberdade para:
+- Recriar integralmente frontend e backend.
+- Redesenhar todos os componentes visuais.
+- Alterar frameworks, linguagens e bibliotecas.
+- Substituir a organização atual do projeto.
+- Criar ou eliminar abstrações desnecessárias.
+- Unificar implementações duplicadas.
+- Reformular a navegação.
+- Redefinir gerenciamento de estado.
+- Alterar a arquitetura de persistência.
+- Implementar melhores práticas de segurança.
+- Introduzir testes automatizados.
+- Otimizar renderização e comunicação entre módulos.
+- Corrigir falhas de concepção da implementação original.
+- Adicionar funcionalidades complementares úteis e coerentes.
+
+Não preserve uma tecnologia por apego à implementação anterior.
+
+Entretanto, não introduza dependências, serviços pagos, servidores externos ou complexidade arquitetural sem benefício demonstrável.
+
+Priorize simplicidade estrutural, previsibilidade, manutenibilidade, baixo acoplamento e excelente desempenho.
+
+A nova implementação deve ser tecnicamente superior, não simplesmente mais complexa.
+
+---
+
+# 3. FASE OBRIGATÓRIA: ENGENHARIA REVERSA
+
+Antes de começar a reconstrução, execute uma auditoria completa do projeto disponibilizado.
+
+Investigue:
+
+## 3.1 Estrutura
+- Diretórios e arquivos.
+- Linguagens e frameworks.
+- Dependências.
+- Scripts.
+- Configurações.
+- Entradas da aplicação.
+- Build system.
+- Estrutura dos módulos.
+- Recursos estáticos.
+- Serviços externos.
+- Persistência e bancos de dados.
+- Ferramentas internas.
+- Arquivos legados.
+- Código morto.
+- Configurações de desenvolvimento e produção.
+
+## 3.2 Funcionalidades
+
+Mapeie todas as funcionalidades e classifique cada uma como:
+- Funcional e validada.
+- Funcional, mas não validada.
+- Parcialmente implementada.
+- Implementada com defeitos.
+- Planejada, mas não implementada.
+- Obsoleta ou descontinuada.
+
+Não transforme uma funcionalidade parcialmente implementada em uma funcionalidade considerada concluída.
+
+## 3.3 Interface
+
+Identifique:
+- Todas as páginas e telas.
+- Rotas.
+- Menus.
+- Modais.
+- Formulários.
+- Componentes interativos.
+- Atalhos.
+- Estados de carregamento.
+- Erros apresentados ao usuário.
+- Estados vazios.
+- Feedback visual.
+- Configurações.
+- Fluxos de navegação.
+- Responsividade.
+- Acessibilidade.
+
+## 3.4 Regras de negócio
+
+Identifique as regras existentes, incluindo:
+- Validações.
+- Processamento de dados.
+- Estados internos.
+- Permissões.
+- Restrições.
+- Persistência.
+- Sincronização.
+- Ordem das operações.
+- Tratamento de falhas.
+- Comportamentos de inicialização e encerramento.
+- Dependências entre funcionalidades.
+
+## 3.5 Histórico e regressões
+
+Caso exista histórico Git, examine commits, branches e versões anteriores relevantes.
+
+Busque funcionalidades que já funcionaram e foram comprometidas por mudanças posteriores.
+
+Não restaure cegamente código antigo: recupere o comportamento correto usando uma implementação nova.
+
+## 3.6 Documento de auditoria
+
+Crie docs/NEONSTAGE_AUDIT.md com:
+- Inventário funcional.
+- Arquitetura encontrada.
+- Dependências críticas.
+- Fluxos identificados.
+- Problemas técnicos.
+- Riscos de regressão.
+- Requisitos confirmados.
+- Requisitos incertos.
+- Comportamentos a preservar.
+- Oportunidades de melhoria.
+
+Crie também docs/FEATURE_PARITY_MATRIX.md relacionando cada funcionalidade antiga ao respectivo módulo da nova versão e ao teste que comprovará sua preservação.
+
+---
+
+# 4. VISÃO DO NOVO NEONSTAGE
+
+O NeonStage deve se tornar uma aplicação madura, consistente e visualmente marcante.
+
+Sua identidade deve comunicar:
+- Tecnologia.
+- Precisão.
+- Modernidade.
+- Personalidade.
+- Alta qualidade.
+- Controle.
+- Rapidez.
+- Sofisticação.
+
+O nome NeonStage pode inspirar a direção estética, mas não obriga a adotar um visual neon excessivo.
+
+Você é livre para conceber uma direção visual completamente diferente caso considere que ela seja superior.
+
+Não construa uma interface genérica que pareça apenas um template de dashboard.
+
+Busque uma linguagem de produto própria, coerente e reconhecível.
+
+A personalidade visual deve estar subordinada à usabilidade.
+
+---
+
+# 5. RECONSTRUÇÃO COMPLETA DE UI/UX
+
+Você está expressamente autorizado a substituir 100% do design original.
+
+Atue como diretor de design de produto, não como alguém apenas aplicando CSS.
+
+## 5.1 Design system
+
+Desenvolva um sistema visual com:
+- Tokens de cores.
+- Escala tipográfica.
+- Espaçamentos consistentes.
+- Hierarquia visual clara.
+- Grid.
+- Sistema de superfícies.
+- Bordas e raios.
+- Iconografia consistente.
+- Estados interativos.
+- Estados de foco.
+- Estados desabilitados.
+- Microinterações.
+- Transições.
+- Indicadores de progresso.
+- Padrões reutilizáveis de componentes.
+
+Documente as decisões principais.
+
+## 5.2 Direção estética
+
+Considere como proposta inicial:
+- Identidade visual tecnológica e contemporânea.
+- Tema escuro refinado, quando apropriado.
+- Contrastes bem controlados.
+- Cores de destaque utilizadas com intenção.
+- Tipografia clara e expressiva.
+- Painéis bem organizados.
+- Superfícies com profundidade discreta.
+- Animações sutis e funcionais.
+- Excelente legibilidade.
+- Layouts responsivos.
+
+Essa proposta não é obrigatória.
+
+Você pode rejeitá-la e produzir uma solução melhor, desde que mantenha unidade e qualidade visual.
+
+## 5.3 Experiência do usuário
+
+Redesenhe os fluxos para:
+- Reduzir ações desnecessárias.
+- Facilitar descoberta de recursos.
+- Exibir informações relevantes no contexto correto.
+- Evitar configurações confusas.
+- Impedir estados contraditórios.
+- Fornecer feedback imediato.
+- Permitir recuperação de erros.
+- Comunicar claramente estados internos importantes.
+- Evitar sobrecarga visual.
+- Preservar ações essenciais.
+- Oferecer previsibilidade na navegação.
+
+Não esconda recursos importantes apenas para deixar a interface visualmente mais limpa.
+
+## 5.4 Componentes funcionais
+
+Todo componente interativo precisa ter comportamento implementado.
+
+É proibido considerar concluída uma interface com:
+- Botões sem ação.
+- Formulários que não salvam.
+- Abas decorativas.
+- Dados fictícios apresentados como reais.
+- Indicadores de estado desconectados da aplicação.
+- Configurações que não afetam o sistema.
+- Funcionalidades simuladas sem identificação.
+
+Se uma ação depender de recurso externo indisponível, implemente os estados reais de integração e erro e documente a limitação.
+
+---
+
+# 6. NOVA ARQUITETURA DE SOFTWARE
+
+Projete uma arquitetura adequada aos requisitos que encontrar.
+
+Não escolha ferramentas apenas pela popularidade.
+
+Avalie:
+- Arquitetura modular.
+- Separação de responsabilidades.
+- Organização por domínio ou funcionalidades.
+- Fronteiras entre interface e lógica de negócio.
+- Camadas de acesso a dados.
+- Isolamento de integrações.
+- Gerenciamento de estado.
+- Estratégia de cache.
+- Tratamento centralizado de erros.
+- Tipagem.
+- Validação de entradas.
+- Observabilidade.
+- Escalabilidade.
+- Testabilidade.
+
+As regras de negócio não devem depender de componentes visuais.
+
+A implementação deve permitir a evolução de funcionalidades sem exigir alterações não relacionadas em diversas áreas.
+
+Crie docs/ARCHITECTURE.md explicando:
+- Stack selecionada.
+- Justificativas técnicas.
+- Estrutura de módulos.
+- Fluxo de dados.
+- Contratos internos.
+- Dependências principais.
+- Estratégia de armazenamento.
+- Estratégia de tratamento de erros.
+- Decisões arquiteturais relevantes.
+
+---
+
+# 7. COMPATIBILIDADE FUNCIONAL
+
+Esta é uma exigência prioritária.
+
+Antes de substituir funcionalidades, estabeleça como o comportamento original pode ser verificado.
+
+Para cada recurso:
+1. Identifique sua finalidade.
+2. Determine entradas e saídas.
+3. Identifique dependências.
+4. Descubra condições de funcionamento.
+5. Documente casos normais.
+6. Documente falhas previsíveis.
+7. Implemente o recurso novamente.
+8. Compare o comportamento com o original.
+9. Valide com testes.
+10. Registre o resultado.
+
+Não basta que a nova versão tenha um botão com o mesmo nome.
+
+Ela precisa reproduzir os resultados efetivos esperados.
+
+Para integrações com dispositivos, sistemas externos, arquivos, processos locais, APIs ou recursos específicos de plataforma, preserve contratos e comportamentos comprovados.
+
+Não afirme compatibilidade com um ambiente que você não conseguiu testar.
+
+---
+
+# 8. DADOS, CONFIGURAÇÕES E PERSISTÊNCIA
+
+Investigue todos os dados utilizados pelo NeonStage.
+
+Verifique:
+- Estruturas de dados.
+- Preferências do usuário.
+- Arquivos de configuração.
+- Bancos de dados.
+- Cache.
+- Metadados.
+- Histórico.
+- Recursos importados.
+- Recursos exportados.
+- Dependências de caminhos absolutos.
+- Informações persistidas entre execuções.
+
+Se houver dados ou configurações relevantes, projete mecanismos seguros de migração ou importação.
+
+Não descarte dados do projeto original sem necessidade.
+
+Não execute operações destrutivas sobre a instalação existente.
+
+Sempre que adequado, ofereça:
+- Persistência confiável.
+- Validação de configurações.
+- Versionamento de esquemas.
+- Recuperação de configurações inválidas.
+- Exportação e importação.
+- Backups.
+- Migrações reversíveis.
+
+---
+
+# 9. ROBUSTEZ E SEGURANÇA
+
+A nova versão precisa lidar corretamente com condições adversas.
+
+Considere:
+- Entradas inválidas.
+- Arquivos ausentes.
+- Permissões insuficientes.
+- Interrupções inesperadas.
+- Falhas de rede.
+- Serviços indisponíveis.
+- Dados corrompidos.
+- Erros de inicialização.
+- Estados incompletos.
+- Operações simultâneas.
+- Dependências incompatíveis.
+- Encerramento abrupto.
+
+Adote práticas adequadas de segurança, incluindo:
+- Validação de dados em fronteiras de confiança.
+- Proteção de credenciais.
+- Ausência de segredos no código-fonte.
+- Uso restrito de permissões.
+- Tratamento seguro de arquivos e caminhos.
+- Proteção contra operações destrutivas acidentais.
+- Verificação de dependências.
+
+Não crie complexidade de segurança irrelevante, mas não deixe vulnerabilidades triviais.
+
+---
+
+# 10. PERFORMANCE E QUALIDADE
+
+Analise o desempenho dos fluxos importantes.
+
+Otimize, onde fizer sentido:
+- Inicialização.
+- Renderização.
+- Consumo de memória.
+- Processamento.
+- Carregamento de recursos.
+- Comunicação entre módulos.
+- Atualizações de estado.
+- Persistência.
+- Eventos.
+- Operações assíncronas.
+
+Evite:
+- Renderizações desnecessárias.
+- Listeners duplicados.
+- Processamento repetitivo.
+- Dependências excessivas.
+- Operações bloqueantes na interface.
+- Vazamentos de memória.
+- Loops descontrolados.
+- Polling desnecessário.
+
+Estabeleça medições realistas.
+
+Não invente resultados de benchmark.
+
+---
+
+# 11. TESTES OBRIGATÓRIOS
+
+A reconstrução deve incluir uma estratégia de validação.
+
+Implemente os testes adequados à stack selecionada.
+
+Priorize:
+- Testes unitários para regras de negócio.
+- Testes de integração entre módulos.
+- Testes de fluxos críticos.
+- Testes de persistência.
+- Testes de inicialização.
+- Testes de tratamento de falhas.
+- Testes de regressão.
+- Testes de componentes interativos.
+- Testes end-to-end, quando viáveis.
+
+Para cada funcionalidade crítica, descreva como verificar sua operação.
+
+Execute efetivamente os testes no ambiente disponível.
+
+Se não puder executar algum teste, identifique-o como NÃO EXECUTADO.
+
+Jamais atribua status APROVADO a um teste não realizado.
+
+Documente:
+- Testes executados.
+- Resultados.
+- Falhas.
+- Correções.
+- Limitações de ambiente.
+- Funcionalidades não verificáveis.
+
+---
+
+# 12. METODOLOGIA DE EXECUÇÃO
+
+Você deve trabalhar em etapas verificáveis, sem transformar o processo numa sequência interminável de planejamentos.
+
+ETAPA A — DESCOBERTA
+Inspecione o projeto, identifique requisitos e produza o inventário funcional.
+
+ETAPA B — DEFINIÇÃO
+Escolha a stack, a arquitetura e a direção de design com base nas evidências encontradas.
+
+ETAPA C — FUNDAÇÃO
+Crie a estrutura do novo projeto, configure ferramentas, inicialização, tipagem, padrões e testes.
+
+ETAPA D — IMPLEMENTAÇÃO
+Reconstrua os módulos e os fluxos funcionais reais.
+
+ETAPA E — INTERFACE
+Integre a nova experiência visual às funcionalidades implementadas.
+
+ETAPA F — VALIDAÇÃO
+Execute builds, testes e verificações de regressão.
+
+ETAPA G — FINALIZAÇÃO
+Corrija problemas identificados, elimine código provisório desnecessário e organize a entrega.
+
+Você pode intercalar implementação e interface quando isso for mais eficiente.
+
+Não interrompa a execução após concluir apenas a documentação ou a estrutura inicial.
+
+---
+
+# 13. REGRA DE CONTINUIDADE
+
+Trabalhe de forma autônoma dentro dos recursos e permissões disponíveis.
+
+Não solicite aprovação para decisões técnicas reversíveis e não destrutivas.
+
+Escolha uma solução fundamentada, implemente e valide.
+
+Somente interrompa para solicitar uma decisão quando houver:
+- Risco de perda irreversível de dados.
+- Necessidade de credenciais que não estão disponíveis.
+- Dependência de hardware indispensável.
+- Requisito essencial impossível de inferir.
+- Consequência externa relevante.
+- Limitação real do ambiente.
+
+Se houver limitação de contexto ou execução, registre o estado do trabalho para permitir continuação sem perda de informações.
+
+Crie NEONSTAGE_PROGRESS.md contendo:
+- Objetivo atual.
+- Decisões tomadas.
+- Funcionalidades concluídas.
+- Testes realizados.
+- Pendências.
+- Bloqueios.
+- Próxima etapa executável.
+
+Não diga que um recurso está pronto apenas porque escreveu seu código.
+
+---
+
+# 14. DIRETRIZES PARA O CÓDIGO
+
+Produza código real, organizado e executável.
+
+Exigências:
+- Nomes claros.
+- Responsabilidades bem delimitadas.
+- Tipos consistentes.
+- Baixo acoplamento.
+- Interfaces explícitas entre módulos.
+- Tratamento adequado de erros.
+- Comentários apenas quando agregarem contexto.
+- Ausência de código morto desnecessário.
+- Ausência de duplicações injustificadas.
+- Configurações reproduzíveis.
+- Dependências justificáveis.
+- Estrutura adequada para manutenção.
+
+Não crie abstrações complexas para problemas simples.
+
+Não concentre toda a aplicação em arquivos monolíticos.
+
+Não substitua lógica real por mocks permanentes.
+
+Não preencha lacunas com implementações falsas apresentadas como definitivas.
+
+---
+
+# 15. REQUISITOS DE ENTREGA
+
+Ao final, preciso de:
+
+1. Uma nova implementação completa do NeonStage.
+2. Código-fonte organizado.
+3. Interface visual reconstruída.
+4. Fluxos funcionais integrados.
+5. Sistema de configuração operacional.
+6. Dependências e scripts reproduzíveis.
+7. Documentação de instalação.
+8. Documentação de execução.
+9. Documentação de arquitetura.
+10. Matriz de equivalência funcional.
+11. Relatório de testes.
+12. Lista objetiva de funcionalidades implementadas.
+13. Lista de limitações efetivamente existentes.
+14. Instruções para utilizar a nova versão.
+15. Projeto original preservado ou procedimento de migração seguro.
+
+A entrega deve permitir que outro desenvolvedor compreenda, instale, execute, teste e mantenha o projeto.
+
+---
+
+# 16. CRITÉRIOS DE ACEITAÇÃO
+
+O NeonStage reconstruído só poderá ser considerado concluído quando:
+
+- A aplicação iniciar corretamente no ambiente suportado.
+- A interface principal estiver operacional.
+- Os fluxos críticos estiverem implementados.
+- As funções anteriormente validadas estiverem preservadas.
+- As configurações produzirem efeitos reais.
+- Os estados da interface refletirem o estado real do sistema.
+- A persistência necessária funcionar.
+- Os testes previstos forem executados ou suas limitações explicitadas.
+- Não existirem erros conhecidos bloqueantes nos fluxos principais.
+- O processo de instalação for reproduzível.
+- O usuário puder operar o sistema sem depender de intervenções manuais não documentadas.
+
+Se algum critério não for atingido, apresente o estado real como PARCIAL, com o motivo específico.
+
+---
+
+# 17. PROIBIÇÕES
+
+Não faça o seguinte:
+
+- Não apenas reformule o CSS.
+- Não entregue somente um protótipo.
+- Não entregue apenas uma arquitetura teórica.
+- Não remova funcionalidades silenciosamente.
+- Não invente comportamentos do projeto original.
+- Não substitua integrações reais por animações.
+- Não apresente dados fictícios como dados do sistema.
+- Não afirme que testou aquilo que não executou.
+- Não reescreva arquivos originais de forma destrutiva.
+- Não sacrifique funcionalidade para melhorar aparência.
+- Não adote frameworks desnecessários.
+- Não encerre a tarefa somente após gerar o planejamento.
+- Não declare conclusão sem evidência de execução e verificação.
+
+---
+
+# 18. MODO DE TRABALHO ESPERADO
+
+Você não é um consultor externo oferecendo sugestões.
+
+Você é o responsável técnico pela reconstrução do produto.
+
+Pense sistemicamente e implemente de maneira disciplinada.
+
+Tome decisões próprias, corrija decisões anteriores quando encontrar evidências melhores e evite depender de instruções constantes do usuário.
+
+Avalie o projeto como um todo.
+
+Sempre procure compreender as interdependências antes de alterar partes essenciais.
+
+O sucesso não será medido pela quantidade de arquivos criados ou linhas de código produzidas.
+
+Será medido pela qualidade funcional, experiência do usuário, estabilidade, manutenção e correção da nova aplicação.
+
+---
+
+# 19. PRIMEIRA AÇÃO — EXECUTE AGORA
+
+Comece imediatamente pela exploração do ambiente e do projeto NeonStage.
+
+1. Localize a raiz do projeto.
+2. Examine a estrutura e os arquivos essenciais.
+3. Identifique como a versão atual é executada.
+4. Execute verificações iniciais não destrutivas.
+5. Identifique todos os recursos disponíveis.
+6. Verifique documentação, histórico e configurações.
+7. Produza a matriz de funcionalidades.
+8. Defina a nova arquitetura com base no que encontrou.
+9. Crie uma implementação nova em diretório ou branch isolada.
+10. Prossiga com a reconstrução e os testes.
+
+Caso os arquivos do projeto não estejam acessíveis, informe precisamente quais fontes estão faltando; não simule uma análise inexistente.
+
+REGRA FINAL:
+
+Você tem 100% de liberdade criativa e técnica para reinventar o NeonStage.
+
+Você não tem liberdade para fingir que a aplicação funciona quando não funciona.
+
+Reconstrua o produto como se estivesse desenvolvendo sua versão definitiva, com a disciplina de uma equipe profissional e a ambição de entregar uma experiência substancialmente melhor que a original.
+
+INICIE A EXECUÇÃO.
